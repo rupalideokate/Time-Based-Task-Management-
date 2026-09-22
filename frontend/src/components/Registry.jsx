@@ -1,46 +1,56 @@
 export default function Registry({ users }) {
   return (
     <section className="registry">
+      
+      {/* Header */}
       <div className="registry-header">
-        <h2>👥 User Registry</h2>
-        <span>{users.length} RECORDS</span>
+        <div className="registry-title">
+          <div className="registry-icon">👥</div>
+
+          <div>
+            <h2>User Registry</h2>
+            <p>Manage registered users</p>
+          </div>
+        </div>
+
+        <span className="record-badge">
+          {users.length} RECORDS
+        </span>
       </div>
 
+      {/* Users */}
       {users.length === 0 ? (
         <div className="empty-state">
-          <h3>No entries yet</h3>
-          <p>Add your first user using the form above.</p>
+          <div className="empty-icon">👤</div>
+          <h3>No users yet</h3>
+          <p>Add your first user to get started.</p>
         </div>
       ) : (
-        <div className="table-wrapper">
-          <table className="user-table">
-            <thead>
-              <tr>
-                <th>Name</th>
-                <th>Email</th>
-              </tr>
-            </thead>
+        <div className="users-list">
 
-            <tbody>
-              {users.map((user) => (
-                <tr key={user.id}>
-                  <td className="user-name">
-                    <div className="user-name-wrapper">
-                      <div className="user-avatar">
-                        {user.name?.charAt(0).toUpperCase()}
-                      </div>
+          {users.map((user) => (
+            <div className="user-row" key={user.id}>
 
-                      <span>{user.name}</span>
-                    </div>
-                  </td>
+              {/* Avatar */}
+              <div className="user-avatar">
+                {user.name?.charAt(0).toUpperCase()}
+              </div>
 
-                  <td className="user-email">
-                    {user.email}
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
+              {/* User information */}
+              <div className="user-info">
+                <h3>{user.name}</h3>
+                <p>{user.email}</p>
+              </div>
+
+              {/* Status */}
+              <div className="user-status">
+                <span className="status-dot"></span>
+                Active
+              </div>
+
+            </div>
+          ))}
+
         </div>
       )}
     </section>
