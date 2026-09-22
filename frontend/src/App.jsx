@@ -96,14 +96,14 @@ export default function App() {
         <header className="topbar">
           <div className="welcome">
             <div className="breadcrumb">WORKSPACE / OVERVIEW</div>
-            <h1>Good morning, Rupali 👋</h1>
+            <h1>Welcome back, Admin!</h1>
             <p>Manage your users and keep your workspace organized.</p>
           </div>
 
           <div className="profile">
             <div className="avatar">R</div>
             <div>
-              <strong>Rupali</strong>
+              <strong>Admin</strong>
               <br />
               <small>Administrator</small>
             </div>
